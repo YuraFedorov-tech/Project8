@@ -1,0 +1,64 @@
+<!DOCTYPE HTML>
+<html lang="en"
+      xmlns:th="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Admin Panel</title>
+    <!--    <link rel="stylesheet" type="text/css" th:href="@{/css/styles.css}"/>-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+
+</head>
+<body>
+
+
+<main role="main" class="col-md-10 ml-sm-auto col-lg-10 px-4 p-5">
+
+    <h2 class="h3">User Page</h2>
+
+
+    <h3>Приветствуем Вас на главной странице!</h3>
+    <h4 th:utext="${user.name +' ' + user.password }">..!..</h4>
+    <h3>вариант 2</h3>
+    <h4 th:utext="${user.getName() +' ' + user.getPassword() }">..!..</h4>
+    <a href="/logout">Выход</a>
+    <table>
+        <thead>
+        <tr>
+            <td>Name</td>
+            <td>Document</td>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="viewAvailableWhisky : ${userInJDBC}">
+            <td th:text="${viewAvailableWhisky.name}">Name</td>
+            <td th:text="${viewAvailableWhisky.password}">Describe</td>
+
+        </tr>
+        </tbody>
+    </table>
+    <tr th:each="viewAvailableWhisky : ${userInJDBC}">
+        <td th:text="${viewAvailableWhisky.name}">Name1</td>
+        <td th:text="${viewAvailableWhisky.password}">Describe1</td>
+        <h1>1</h1>
+    </tr>
+    <h4 th:utext="${example}">${example}</h4>
+    <h3>вариант 2</h3>
+    <h4 th:text="${example}">${example}</h4>
+    <h1>"${example}"</h1>
+    <h2> ${example}</h2>
+    <table>
+        <tr data-th-each="user2 : ${userInJDBC}">
+            <td data-th-text="${user2.password}">...</td>
+            <td data-th-text="${user2.name}">...</td>
+        </tr>
+    </table>
+</main>
+
+
+</body>
+</html>
+
