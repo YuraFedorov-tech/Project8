@@ -72,8 +72,7 @@ public class ChangeUsersController {
 
 
     @PostMapping(value = "admin/deleteUser")
-    public String deleteCar(HttpServletRequest req) {
-        String[] items = req.getParameterValues("Delete");
+    public String deleteCar(@RequestParam(required = false, name = "Delete") String[] items) {
         for (String str : items) {
             try {
                 Long id = Long.parseLong(str);
@@ -86,9 +85,8 @@ public class ChangeUsersController {
     }
 
     @GetMapping(value = "admin/updateUser")
-    public String getUpdateUser(HttpServletRequest req, ModelMap model) {
-        Long id = Long.parseLong(req.getParameter("id"));
-        User user = userService.findById(id);
+    public String getUpdateUser(@RequestParam(required = false, name = "id") Long id, ModelMap model) {
+             User user = userService.findById(id);
         model.addAttribute("user", user);
         return "change";
     }
