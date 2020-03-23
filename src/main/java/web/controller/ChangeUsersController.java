@@ -97,8 +97,9 @@ public class ChangeUsersController {
     public String postUpdateUser(UserForm userForm) {
         List<Role> roles = new ArrayList<>();
         roles.add(new Role("USER"));
-        User user = new User(userForm.getPassword(), userForm.getName(), roles, userForm.getId());
-        userService.add(user);
+        User user2=userService.findById(userForm.getId());
+        User user = new User(userForm.getPassword(), userForm.getName(), user2.getRoles(), userForm.getId());
+        userService.update(user);
         return "redirect:/admin/changeUser";
     }
 

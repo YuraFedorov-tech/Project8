@@ -42,15 +42,15 @@ public class UserDaoImpl implements UserDao {
 
     @Override
     public void update(User model) {
-    //    Session session = sessionFactory.openSession();
-   //     session.saveOrUpdate(model);
         Session session = sessionFactory.openSession();
-        String hql = "update User WHERE id = :id";
         Transaction transaction = session.beginTransaction();
+
         try {
-            Query query = session.createQuery(hql);
+            Query query = session.createQuery("update User set name=:name ,password=:password  where id = :id  ");
+            query.setParameter("name", model.getName());
+            query.setParameter("password", model.getPassword());
             query.setParameter("id", model.getId());
-            int rows = query.executeUpdate();
+            int result = query.executeUpdate();
             transaction.commit();
         } catch (HibernateException he) {
             transaction.rollback();
@@ -67,7 +67,7 @@ public class UserDaoImpl implements UserDao {
 
     @Override
     public void drop() {
-      int y=sessionFactory.getCurrentSession().createQuery("DROP TABLE car cascade").executeUpdate();
+        int y = sessionFactory.getCurrentSession().createQuery("DROP TABLE car cascade").executeUpdate();
     }
 
     @Override

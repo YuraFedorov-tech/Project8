@@ -20,10 +20,7 @@
             <td th:text="${user.id}">ID</td>
             <td th:text="${user.name}">Name1</td>
             <td th:text="${user.password}">Describe1</td>
-<!--            <td>-->
-<!--&lt;!&ndash;                <a href="/admin/updateUser?id=<c:out value='${User.id}' />">Edit</a>&ndash;&gt;-->
-<!--                <a href="/admin/updateUser?id=">Edit</a>-->
-<!--            </td>-->
+
             <td>
                 <a th:href="@{'/admin/updateUser?id=' + ${user.id}}">Edit</a>
             </td>

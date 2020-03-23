@@ -44,7 +44,7 @@ public class UserServiceImpl implements UserService {
         return userDao.findById(id);
     }
 
-   @Transactional
+  // @Transactional
     @Override
     public void update(User model) {
         userDao.update(model);
