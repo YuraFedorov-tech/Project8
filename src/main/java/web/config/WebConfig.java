@@ -33,20 +33,20 @@ public class WebConfig implements WebMvcConfigurer {
     @Autowired
     private Environment env;
 
-    @Override
-    public void addResourceHandlers(ResourceHandlerRegistry registry) {
-        registry.addResourceHandler("/html/**").addResourceLocations("/html/");
-    }
-
-    @Bean
-    public InternalResourceViewResolver setupViewResolver() {
-        InternalResourceViewResolver resolver = new InternalResourceViewResolver();
-        resolver.setPrefix("/html/");
-        resolver.setSuffix(".html");
-        resolver.setViewClass(JstlView.class);
-
-        return resolver;
-    }
+//    @Override
+//    public void addResourceHandlers(ResourceHandlerRegistry registry) {
+//        registry.addResourceHandler("/html/**").addResourceLocations("/html/");
+//    }
+//
+//    @Bean
+//    public InternalResourceViewResolver setupViewResolver() {
+//        InternalResourceViewResolver resolver = new InternalResourceViewResolver();
+//        resolver.setPrefix("/html/");
+//        resolver.setSuffix(".html");
+//  //      resolver.setViewClass(JstlView.class);
+//
+//        return resolver;
+//    }
 //    @Override
 //    public void addResourceHandlers(ResourceHandlerRegistry registry) {
 //        registry.addResourceHandler("/jsp/**").addResourceLocations("/jsp/");

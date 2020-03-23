@@ -1,44 +1,40 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <title>CHANGE USER</title>
 </head>
 <body>
-<br>
+<table border="3">
+    <tr>
+        <th>ID</th>
+        <th>NAME</th>
+        <th>PASSWORD</th>
+    </tr>
+    <tr>
+        <!--/*@thymesVar id="user" type="java"*/-->
+        <td>  <h4 th:text="${user.id}"/>   </td>
+        <td>  <h4 th:text="${user.name}"/>   </td>
+        <td>  <h4 th:text="${user.password}"/>   </td>
+    </tr>
+</table>
 
-<tr>
-    <td>ID</td>
-    <td>NAME</td>
-    <td>PASSWORD</td>
-</tr>
-</br>
-<tr>
-    <th>${User.id}</th>
-    <th>${User.name}</th>
-    <th>${User.password}</th>
-</tr>
-<h1 th:text="${User.password}" />
-<h1 th:text="${User.getPassword()}" />
-<span th:text="${User.getId()}"/>
-
-</br>
-
-
-</br>
 <h5>Input new parametrs</h5>
 <h4>update User in dataBase</h4>
-<form method="post" action="/admin/updateUser?id=<c:out value='${User.id}' />">
-    <label for="name">
-        <input id="name" name="name" value="name">
-    </label></br>
-    <label for="password">
-        <input id="password" name="password" value="password">
-    </label></br>
-
-    <input type="submit" value="update in DB">
+<form action="#" th:action="@{'/admin/updateUser?id=' + ${user.id}}" method="post">
+    <table border="1">
+        <tr>
+            <th>NAME</th>
+            <th>PASSWORD</th>
+        </tr>
+        <tr>
+            <td><input type="text" id="name" name="name" value="name"/></td>
+            <td><input type="text" id="password" name="password" value="password"/></td>
+        </tr>
+    </table>
+    <tr>
+        <td><input type="submit" value="UPDATE"/></td>
+    </tr>
 </form>
-<a href="/logout">Выход</a>
+<a href="/logout">EXIT</a>
 </body>
 </html>

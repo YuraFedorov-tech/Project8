@@ -1,23 +1,29 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<html lang="en">
+<!--<html lang="en">-->
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <title>LOGIN</title>
 </head>
 <body>
-<form method="post" action="/login">
-    <label for="name">Логин
-        <input type="text" id="name" name="name">
-    </label>
-    <br>
-    <label for="password">Пароль
-        <input  type="password" id="password" name="password">
-    </label>
-    <br>
-    <label for="remember-me">
-        <input type="checkbox" id="remember-me" name="remember-me">Запомнить меня</label>
-    <input type="submit" value="Login">
-</form>
+<table border="5">
+    <form action="#" th:action="@{/login}" method="post">
+        <table border="2">
+            <tr>
+              <td> <input type="text" id="name" name="name" value="name"/></td>
+            </tr>
+            <p></p>
+            <tr>
+                <td>    <input type="text" id="password" name="password" value="password"/></td>
+            </tr>
+        </table>
+        <tr>
+            <td><input type="submit" value="SIGN UP"/></td>
+        </tr>
+    </form>
+</table>
+<p></p>
+<a href="/logout">EXIT</a>
+
+<h1>login</h1>
 </body>
 </html>

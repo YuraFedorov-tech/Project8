@@ -58,17 +58,14 @@ public class ChangeUsersController {
         }
         UserDetailesImpl userDetailes = (UserDetailesImpl) authentication.getPrincipal();
         User user = new User(userDetailes.getPassword(), userDetailes.getUsername(),  userDetailes.getUser().getId());
-        System.out.println(user);
-        modelMap.addAttribute("userInJDBC", user);
         modelMap.addAttribute("user", user);
-        modelMap.addAttribute("example", "dgrdfg");
         return "seeUser";
     }
 
     @GetMapping(value = "admin/changeUser")
     public String getChangeCar(ModelMap modelMap) {
         List<User> users = userService.findAll();
-        modelMap.addAttribute("userInJDBC", users);
+        modelMap.addAttribute("users", users);
         System.out.println(users);
         return "crud";
     }
@@ -92,7 +89,7 @@ public class ChangeUsersController {
     public String getUpdateUser(HttpServletRequest req, ModelMap model) {
         Long id = Long.parseLong(req.getParameter("id"));
         User user = userService.findById(id);
-        model.addAttribute("User", user);
+        model.addAttribute("user", user);
         return "change";
     }
 
